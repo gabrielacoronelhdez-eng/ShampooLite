@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ShampooLite | Champú experimental</title>
+
+    <style>
+
+        /* ===== CONFIGURACIÓN GENERAL ===== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7f5;
+            color: #26352d;
+            line-height: 1.6;
+        }
+
+
+        /* ===== ENCABEZADO / LOGO ===== */
+
+        header {
+            background: white;
+            text-align: center;
+            padding: 25px 20px;
+            border-bottom: 1px solid #dce5df;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #315c47;
+            letter-spacing: 1px;
+        }
+
+        .sublogo {
+            font-size: 14px;
+            color: #718078;
+            margin-top: 4px;
+        }
+
+
+        /* ===== CONTENEDOR ===== */
+
+        .contenedor {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+
+        /* ===== PRESENTACIÓN DEL PRODUCTO ===== */
+
+        .producto {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .imagen-producto {
+            width: 42%;
+            max-width: 380px;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .informacion {
+            flex: 1;
+        }
+
+        .informacion h1 {
+            font-size: 42px;
+            color: #315c47;
+            margin-bottom: 10px;
+        }
+
+        .informacion h3 {
+            font-size: 20px;
+            font-weight: normal;
+            color: #718078;
+            margin-bottom: 20px;
+        }
+
+        .informacion p {
+            font-size: 17px;
+            color: #4d5b53;
+        }
+
+
+        /* ===== SECCIONES ===== */
+
+        .seccion {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin-top: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .seccion h2 {
+            color: #315c47;
+            font-size: 28px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #dce5df;
+            padding-bottom: 10px;
+        }
+
+
+        /* ===== INGREDIENTES ===== */
+
+        .ingredientes {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .ingrediente {
+            background: #f1f6f3;
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 17px;
+        }
+
+        .ingrediente strong {
+            color: #315c47;
+        }
+
+
+        /* ===== PROCEDIMIENTO ===== */
+
+        .procedimiento {
+            list-style: none;
+            counter-reset: pasos;
+        }
+
+        .procedimiento li {
+            counter-increment: pasos;
+            margin-bottom: 18px;
+            padding: 15px 15px 15px 55px;
+            background: #f1f6f3;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .procedimiento li::before {
+            content: counter(pasos);
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+
+            width: 28px;
+            height: 28px;
+
+            background: #315c47;
+            color: white;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-weight: bold;
+        }
+
+
+        /* ===== AVISO ===== */
+
+        .aviso {
+            margin-top: 25px;
+            padding: 20px;
+            background: #fff8e5;
+            border-left: 5px solid #d5a52c;
+            border-radius: 8px;
+            color: #665323;
+        }
+
+
+        /* ===== PIE DE PÁGINA ===== */
+
+        footer {
+            margin-top: 50px;
+            background: #315c47;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+
+        /* ===== CELULARES ===== */
+
+        @media (max-width: 700px) {
+
+            .producto {
+                flex-direction: column;
+                padding: 25px;
+                gap: 25px;
+            }
+
+            .imagen-producto {
+                width: 100%;
+                height: auto;
+                max-height: 500px;
+            }
+
+            .informacion {
+                text-align: center;
+            }
+
+            .informacion h1 {
+                font-size: 34px;
+            }
+
+            .ingredientes {
+                grid-template-columns: 1fr;
+            }
+
+            .seccion {
+                padding: 25px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         LOGO
+    ========================================== -->
+
+    <header>
+
+        <div class="logo">
+            🧴 ShampooLite
+        </div>
+
+        <div class="sublogo">
+            Champú experimental – uso escolar
+        </div>
+
+    </header>
+
+
+
+    <main class="contenedor">
+
+
+        <!-- =========================================
+             PRESENTACIÓN DEL PRODUCTO
+        ========================================== -->
+
+        <section class="producto">
+
+            <!--
+            AQUÍ ESTÁ LA IMAGEN DEL PRODUCTO.
+
+            Tu archivo debe llamarse:
+            shampoo.jpg
+
+            y debe estar en la misma carpeta que index.html.
+            -->
+
+            <img 
+                src="shampoo.jpeg"
+                alt="Botella de ShampooLite"
+                class="imagen-producto"
+            >
+
+
+            <div class="informacion">
+
+                <h1>ShampooLite</h1>
+
+                <h3>Champú experimental – uso escolar</h3>
+
+                <p>
+                    ShampooLite es un champú experimental elaborado a partir
+                    de una combinación de agua, Texapón, glicerina y azúcar.
+                    Su preparación permite conocer de manera práctica el
+                    proceso de elaboración de un producto de higiene personal.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             INGREDIENTES
+        ========================================== -->
+
+        <section class="seccion">
+
+            <h2>🧪 Ingredientes para 100 mL</h2>
+
+
+            <div class="ingredientes">
+
+                <div class="ingrediente">
+                    <strong>70 mL</strong> de agua
+                </div>
+
+                <div class="ingrediente">
+                    <strong>20 mL</strong> de Texapón
+                </div>
+
+                <div class="ingrediente">
+                    <strong>5 mL</strong> de glicerina
+                </div>
+
+                <div class="ingrediente">
+                    <strong>5 g</strong> de azúcar disuelta en una pequeña
+                    cantidad del agua
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             PROCEDIMIENTO
+        ========================================== -->
+
+        <section class="seccion">
+
+            <h2>🔬 Procedimiento</h2>
+
+
+            <ol class="procedimiento">
+
+                <li>
+                    Disuelve el azúcar en una pequeña cantidad del agua.
+                </li>
+
+                <li>
+                    Agrega el resto del agua lentamente.
+                </li>
+
+                <li>
+                    Incorpora el Texapón poco a poco, mezclando suavemente
+                    para no producir demasiada espuma.
+                </li>
+
+                <li>
+                    Añade la glicerina y mezcla hasta que quede uniforme.
+                </li>
+
+                <li>
+                    Deja reposar para que baje la espuma.
+                </li>
+
+                <li>
+                    Envasa y etiqueta como
+                    <strong>“Champú experimental – uso escolar”.</strong>
+                </li>
+
+            </ol>
+
+
+            <div class="aviso">
+
+                <strong>⚠️ Importante:</strong>
+                Producto elaborado con fines experimentales y educativos.
+                No está destinado para uso comercial.
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================================
+         PIE DE PÁGINA
+    ========================================== -->
+
+    <footer>
+
+        <p><strong>ShampooLite</strong></p>
+
+        <p>Proyecto escolar</p>
+
+        <p>© 2026</p>
+
+    </footer>
+
+
+</body>
+
+</html>
